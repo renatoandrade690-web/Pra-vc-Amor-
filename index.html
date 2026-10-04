@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para o meu amor ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;background:linear-gradient(135deg,#2b0718,#641b38,#a34260);font-family:Poppins,sans-serif;display:flex;align-items:center;justify-content:center;overflow-x:hidden;padding:25px 15px;color:#fff}
+.heart{position:fixed;bottom:-30px;color:rgba(255,190,210,.6);animation:subir linear infinite;pointer-events:none;z-index:0}
+@keyframes subir{0%{transform:translateY(0) rotate(0);opacity:0}20%{opacity:1}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.container{position:relative;z-index:2;width:100%;max-width:430px;text-align:center}
+.inicio h1{font-family:'Dancing Script',cursive;font-size:42px;color:#ffd1df;margin-bottom:12px}
+.inicio p{font-size:14px;color:#f9dce6;margin-bottom:35px}
+.envelope-area{cursor:pointer;transition:transform .4s}
+.envelope-area:hover{transform:scale(1.04)}
+.envelope{position:relative;width:270px;height:180px;background:#f6b8c9;margin:auto;border-radius:5px;box-shadow:0 15px 40px rgba(0,0,0,.3)}
+.envelope:before{content:"";position:absolute;top:0;left:0;border-left:135px solid transparent;border-right:135px solid transparent;border-top:110px solid #ed91ac;z-index:3}
+.envelope:after{content:"❤️";position:absolute;top:68px;left:50%;transform:translateX(-50%);font-size:35px;z-index:4}
+.envelope-text{margin-top:25px;font-size:13px;color:#ffe5ed;animation:piscar 1.8s infinite}
+@keyframes piscar{50%{opacity:.5}}
+.carta{display:none;background:#fff8f3;color:#573342;border-radius:12px;padding:30px 23px;box-shadow:0 15px 50px rgba(0,0,0,.35);animation:aparecer 1s ease;text-align:left}
+@keyframes aparecer{from{opacity:0;transform:translateY(35px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.carta h2{font-family:'Dancing Script',cursive;font-size:36px;text-align:center;color:#c54b72;margin-bottom:25px}
+.carta p{font-size:13px;line-height:1.9;margin-bottom:17px}
+.assinatura{font-family:'Dancing Script',cursive;font-size:27px;text-align:center;color:#c54b72;margin-top:25px}
+.final{text-align:center;font-size:23px;margin-top:20px}
+.data{text-align:center;color:#b66c85;font-size:11px;margin-top:15px}
+.voltar{display:none;margin:20px auto 0;background:transparent;border:1px solid #ffd1df;color:white;padding:10px 20px;border-radius:30px;cursor:pointer}
+@media(max-width:380px){.carta{padding:25px 18px}.carta p{font-size:12px}.carta h2{font-size:32px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="inicio" id="inicio">
+<h1>Para o meu amor ❤️</h1>
+<p>Preparei uma pequena surpresa para você...</p>
+<div class="envelope-area" onclick="abrirCarta()">
+<div class="envelope"></div>
+<div class="envelope-text">Toque no envelope para abrir sua surpresa 💌</div>
+</div>
+</div>
+<div class="carta" id="carta">
+<h2>Feliz 2 meses, meu amor! ❤️</h2>
+<p><strong>Meu amor,</strong></p>
+<p>Hoje completamos 2 meses juntos, e eu fico pensando em como, em tão pouco tempo, você conseguiu se tornar alguém tão importante para mim.</p>
+<p>Pode parecer pouco para algumas pessoas, mas para mim esses 2 meses carregam muitos momentos, conversas, risadas, saudades e sentimentos que eu jamais imaginaria viver. Mesmo com a distância entre nós, você consegue estar presente nos meus dias de um jeito que poucas pessoas conseguem.</p>
+<p>Eu gosto de cada conversa nossa, de cada detalhe seu e até daqueles momentos simples que talvez pareçam pequenos, mas que acabam fazendo meu dia melhor só porque são com você.</p>
+<p>Sei que ainda temos muito para viver e descobrir juntos. Quero continuar conhecendo você cada vez mais, compartilhar momentos, superar as dificuldades e criar nossas próprias lembranças.</p>
+<p>A distância às vezes aperta o coração, mas também me faz perceber o quanto você é importante para mim. E eu espero que, quando finalmente pudermos estar juntos pessoalmente, a gente perceba que toda essa espera valeu a pena.</p>
+<p>Obrigado por esses 2 meses, por estar comigo e por fazer parte da minha vida.</p>
+<p>Que sejam apenas os primeiros de muitos meses e muitos momentos que ainda vamos viver juntos.</p>
+<p><strong>Eu te amo, minha princesa. ❤️</strong></p>
+<div class="assinatura">Com todo meu amor...</div>
+<div class="final">Feliz 2 meses de nós. 🥹❤️</div>
+<div class="data">Feito com amor, especialmente para você.</div>
+</div>
+<button class="voltar" id="voltar" onclick="voltarInicio()">Voltar 💌</button>
+</div>
+<script>
+function abrirCarta(){document.getElementById("inicio").style.display="none";document.getElementById("carta").style.display="block";document.getElementById("voltar").style.display="block";window.scrollTo({top:0,behavior:"smooth"})}
+function voltarInicio(){document.getElementById("carta").style.display="none";document.getElementById("inicio").style.display="block";document.getElementById("voltar").style.display="none"}
+function criarCoracao(){const heart=document.createElement("div");heart.classList.add("heart");heart.innerHTML=Math.random()>.5?"❤️":"💕";heart.style.left=Math.random()*100+"vw";heart.style.fontSize=(Math.random()*15+12)+"px";heart.style.animationDuration=(Math.random()*5+5)+"s";document.body.appendChild(heart);setTimeout(()=>heart.remove(),10000)}
+setInterval(criarCoracao,600);
+</script>
+</body>
+</html>
